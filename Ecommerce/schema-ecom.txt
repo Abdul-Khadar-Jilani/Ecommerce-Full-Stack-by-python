@@ -1,0 +1,15 @@
+create table additems(
+itemid varchar(30) primary key,
+name varchar(30),
+description varchar(20),
+category 
+enum('electronics','grocery','fashion','home&kitchen'),
+price integer
+);
+
+create table adminreg(username varchar(30) primary key,password varchar(20),email varchar(50));
+
+create table registration(username varchar(50) primary key,mobile varchar(20) unique,email varchar(50) unique,address varchar(50),password varchar(20));
+
+create table orders(oid int primary key,itemid varchar(9),itemname varchar(20),q int,total int,username varchar(30),foreign key (itemid) references additems(itemid) on update cascade on delete cascade,foreign key (username) references users(username)));
+
